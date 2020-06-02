@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/docregstyle.css">
+<script type="text/javascript">
+
+function validateForm() {
+	  var x = document.forms["myForm"]["name"].value;
+	  var y = document.forms["myForm"]["age"].value;
+	  var z = document.forms["myForm"]["mob"].value;
+	  
+	  if (x == "") {
+	    alert("Name must be filled out");
+	    return false;
+	  }
+	  
+	  else if (y == "") {
+		    alert("Age must be filled out");
+		    return false;
+		  }
+	  
+	  else if (z == "") {
+		    alert("Mobile number must be filled out");
+		    return false;
+		  }
+	  alert("Appointment Registered!");
+	}
+	var citiesByState = {
+			Madhya_Pradesh: ["Bhopal","Indore","Sagar","Gwalior","Vidisha","Morena","Jabalpur","Ujjain","Satna"],
+			Maharastra: ["Mumbai","Nagpur","Pune","Kalyan"],
+			Gujrat: ["Vadodra","Ahemdabad","Somnath","Surat","Rajkot","GandhiNagar","Dwarika"],
+			Chattisgarh:["Raiput","Bilaspur","Bhilai"],
+			Karnataka:["Banglore","Mysuru"]
+	}
+	function makeSubmenu(value) {
+			if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+			else {
+			var citiesOptions = "";
+			for(cityId in citiesByState[value]) {
+			citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+			}
+			document.getElementById("citySelect").innerHTML = citiesOptions;
+			}
+	}
+	function displaySelected() { var country = document.getElementById("countrySelect").value;
+			var city = document.getElementById("citySelect").value;
+			alert(country+"\n"+city);
+	}
+	function resetSelection() {
+			document.getElementById("countrySelect").selectedIndex = 0;
+			document.getElementById("citySelect").selectedIndex = 0;
+	}
+</script>
+
+</head>
+
+<body>
+<form action="pathoregaction.jsp" method="post">
+
+<div class="topnav" style="background: lightgrey">
+  <div class ="logo">
+      <a href="home.html"><img src ="access-512.png"></a>
+  </div>
+  <a href="home.html">Home</a>
+  <a href="docreg.html">Are you a doctor</a>
+  <a class="active" href="pathoreg.html">Add your pathology</a>
+</div>
+
+<div class="dropdown">
+	  <button class="dropbtn">More</button>
+	  <div class="dropdown-content">
+	    <a href="appointsearch.jsp">Book appointment</a>
+  	    <a href="booktest.html">Book tests & checkups</a>
+  	    <a href="#">Read articles</</a>
+	    <a href="contact.html">Contact us</a>
+	    <a href="about.html">About us</a>
+  	  </div>
+   </div> 
+
+<div class="button" style="padding-left:16px">
+   <a style="color: black" href="patholog.html" class="btn1">Log in</a>
+   <a style="color: black" href="pathoreg.html" class="btn2">Register</a>
+</div>
+<br><br><br><br>
+
+  <div class="col1-md-6">
+    <h1>Register</h1>
+    <p>Just one more step to Register your lab</p>
+    <hr>
+    
+    <label for="name"><b>Pathology Name</b></label>
+    <input type="text" placeholder="Enter the name of lab" name="name" required>
+    
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="mob"><b>Contact No.</b></label>
+    <input type="text" placeholder="Enter contact no." name="mob"  maxlength="10" minlength="10" required>
+	
+	<label for="head"><b>Name of head pathologist</b></label>
+    <input type="text" placeholder="Enter Name of head pathologist" name="head">
+    
+    <label for="fee"><b>Chargable amount</b></label>
+    <input type="text" placeholder="Enter average chargable amount from customers" name="fee">
+    
+    
+    <label for="state"><b>State:</b></label>
+	<select id="countrySelect" size="1" onchange="makeSubmenu(this.value)" name="state" required>
+			<option value="" disabled selected>select state</option>
+			<option>Madhya_Pradesh</option>
+			<option>Maharastra</option>
+			<option>Gujrat</option>
+			<option>Chattisgarh</option>
+			<option>Karnataka</option>
+	</select>
+	<label for="city"><b>City:</b></label>
+	
+	<select id="citySelect" size="1"  name="city">
+			<option value="" disabled selected>choose city</option>
+			<option></option>
+	</select>
+	
+    <label for="add"><b>Address:</b></label>
+    <input type="text" placeholder="Enter your address" maxlength="15" name="add" required>
+    
+    <label for="type"><b>Type of tests:</b></label>
+    <input type="text" placeholder="Enter types of tests performed at your lab" maxlength="50" name="type" required>
+    
+    <label for="img"><b>Select your image file:</b></label><br>
+    <input type="file" name="img"/><br><br><br>
+    
+    <label for="psw"><b>Password:</b></label> (maximum 8 characters long)
+    <input type="password" placeholder="Create your password" maxlength="8" minlength="6" name="psw" required>
+    
+    
+    <hr>
+
+    <p>By registering you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit" class="registerbtn">Register</button>
+    
+    <p>Already have an account? <a href="patholog.html">Log in</a>.</p>
+    </div>
+
+</form>
+
+</body>
+</html>

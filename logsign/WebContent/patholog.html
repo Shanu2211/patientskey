@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/doclogstyle.css">
+</head>
+<body>
+
+<form action="pathologaction.jsp" method="post">
+
+<div class="topnav" style="background: lightgrey">
+  <div class ="logo">
+      <a href="home.html"><img src ="access-512.png"></a>
+  </div>
+  <a href="home.html">Home</a>
+  <a href="docreg.html">Are you a doctor</a>
+  <a class="active" href="pathoreg.html">Add your pathology</a>
+</div>
+
+<div class="dropdown">
+	  <button class="dropbtn">More</button>
+	  <div class="dropdown-content">
+	  <a href="appointsearch.jsp">Book appointment</a>
+  	  <a href="booktest.html">Book tests & checkups</a>
+	  <a href="#">Read articles</</a>
+	  <a href="contact.html">Contact us</a>
+	  <a href="about.html">About us</a>
+  	  </div>
+   </div> 
+
+<div class="button" style="padding-left:16px">
+   <a style="color: black" href="patholog.html" class="btn1">Log in</a>
+   <a style="color: black" href="pathoreg.html" class="btn2">Register</a>
+</div>
+<br><br><br><br>
+
+<div class="row">
+<div class="col1-md-6">
+	<h1>Login</h1>
+	<p>Enter details to get logged in as a pathology.</p>
+	<hr>
+  <div class="imgcontainer">
+    <img src="access-512.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="email"><b>Email *</b></label>
+    <input type="text" placeholder="Enter email" name="email" required>
+
+    <label for="psw"><b>Password *</b></label>
+    <input type="password" placeholder="Enter Password" maxlength="8" minlength="6" name="psw" required>
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn" onclick="window.location.href='home.html';">Cancel</button>
+    <span class="psw">Don't have an account? <a href="pathoreg.html">Create One</a></span>
+  </div>
+ </div>
+ 
+ <div class="col2-md-6">
+ 
+ </div>
+ </div>
+</form>
+
+
+</body>
+</html>
